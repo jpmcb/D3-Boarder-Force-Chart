@@ -1,4 +1,5 @@
 # Country Boarders Force Chart
 ______
 
-See the relationships between different countries around the world. Using the d3 JavaScript library, see which countries share boarders together. Here is a working [link to the project](#)
+See the relationships between different countries around the world. Using the d3 JavaScript library, see which countries share boarders together. Here is a working [link to the project.](https://jpmcb.github.io/D3-Boarder-Force-Chart/) 
+Data pulled from [this open source repo.](https://raw.githubusercontent.com/DealPete/forceDirected/master/countries.json)

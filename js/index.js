@@ -6,22 +6,22 @@ var svg = d3.select('.root').append('svg')
   .attr('height', h);
 
 var simulation = d3.forceSimulation()
-  .force('link', d3.forceLink())
-  .force('charge', d3.forceManyBody()
-         .strength([-50])
-         .distanceMax([300])
-         .distanceMin([30]))
-  .force('center', d3.forceCenter(w / 2, h / 2));
+                  .force('link', d3.forceLink())
+                  .force('charge', d3.forceManyBody()
+                         .strength([-50])
+                         .distanceMax([300])
+                         .distanceMin([30]))
+                  .force('center', d3.forceCenter(w / 2, h / 2));
 
+//AJAX call to get info
 d3.json('https://raw.githubusercontent.com/DealPete/forceDirected/master/countries.json', function(error, data) {
-  console.log(data)
   
   if(error) throw error;
   
   var toolTip = d3.select('body').append('div')
-     .attr('class', 'toolTip')
-     .style('oppacity', '0')
-     .style('position','absolute');
+                   .attr('class', 'toolTip')
+                   .style('oppacity', '0')
+                   .style('position','absolute');
   
   function dragStart(d) {
     if (!d3.event.active) {
