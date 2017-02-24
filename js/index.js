@@ -2,10 +2,10 @@ var w = (window.innerWidth * 0.9), h = (window.innerHeight * 1.2), r = 6;
 var margin = {top: 0, bottom: 0, left: 0, right: 0}
 
 var svg = d3.select('.root').append('svg')
-  .attr('width', w)
-  .attr('height', h);
+            .attr('width', w)
+            .attr('height', h);
 
-var simulation = d3.forceSimulation()
+var simulation = d3.forceSimulation() //set force simulation properties
                   .force('link', d3.forceLink())
                   .force('charge', d3.forceManyBody()
                          .strength([-50])
@@ -13,7 +13,8 @@ var simulation = d3.forceSimulation()
                          .distanceMin([30]))
                   .force('center', d3.forceCenter(w / 2, h / 2));
 
-//AJAX call to get info
+
+//AJAX call to pull data
 d3.json('https://raw.githubusercontent.com/DealPete/forceDirected/master/countries.json', function(error, data) {
   
   if(error) throw error;
@@ -35,12 +36,14 @@ d3.json('https://raw.githubusercontent.com/DealPete/forceDirected/master/countri
     d.fy = d3.event.y;
   }
 
-  // function dragEnd(d) {
+
+  // function dragEnd(d) { //USE IF WANT FORCE TO RETURN TO PREVIOUS
   //   if (!d3.event.active) {simulation.alphaTarget(0);
   //   d.fx = null;
   //   d.fy = null;
   // }}
   
+
   var link = svg.append('g')
     .attr('class', 'links')
     .attr('width', w)
